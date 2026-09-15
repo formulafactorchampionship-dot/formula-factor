@@ -2,12 +2,6 @@
    FFC COUNTDOWN
 ========================= */
 
-/*
-   Nürburgring GP
-   20 September 2026
-   16:30 CEST
-*/
-
 const raceDate = new Date(
     "2026-09-20T16:30:00+02:00"
 ).getTime();
@@ -16,20 +10,24 @@ const raceDate = new Date(
 function updateCountdown() {
 
     const now = Date.now();
-
     const difference = raceDate - now;
 
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minsEl = document.getElementById("mins");
+    const secsEl = document.getElementById("secs");
 
-    if (difference <= 0) {
-
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("mins").textContent = "00";
-        document.getElementById("secs").textContent = "00";
-
+    if (!daysEl || !hoursEl || !minsEl || !secsEl) {
         return;
     }
 
+    if (difference <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minsEl.textContent = "00";
+        secsEl.textContent = "00";
+        return;
+    }
 
     const days = Math.floor(
         difference / (1000 * 60 * 60 * 24)
@@ -47,23 +45,14 @@ function updateCountdown() {
         (difference / 1000) % 60
     );
 
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("mins").textContent =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("secs").textContent =
-        String(seconds).padStart(2, "0");
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minsEl.textContent = String(minutes).padStart(2, "0");
+    secsEl.textContent = String(seconds).padStart(2, "0");
 }
 
 
 updateCountdown();
-
 setInterval(updateCountdown, 1000);
 
 
@@ -73,20 +62,19 @@ setInterval(updateCountdown, 1000);
 
 const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll", () => {
+if (navbar) {
 
-    if (window.scrollY > 30) {
+    window.addEventListener("scroll", () => {
 
-        navbar.style.background =
-            "rgba(5, 7, 10, 0.98)";
+        if (window.scrollY > 30) {
+            navbar.style.background = "rgba(5, 7, 10, 0.98)";
+        } else {
+            navbar.style.background = "rgba(7, 9, 13, 0.94)";
+        }
 
-    } else {
+    });
 
-        navbar.style.background =
-            "rgba(7, 9, 13, 0.94)";
-    }
-
-});
+}
 
 
 /* =========================
@@ -96,7 +84,7 @@ window.addEventListener("scroll", () => {
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.querySelector(".nav-links");
 
-if (menuBtn) {
+if (menuBtn && navLinks) {
 
     menuBtn.addEventListener("click", () => {
 
@@ -115,48 +103,57 @@ const revealElements = document.querySelectorAll(
     ".standings-block, .calendar-card, .race-feature, .info-banner, .stat"
 );
 
-const observer = new IntersectionObserver(
-    (entries) => {
+if ("IntersectionObserver" in window) {
 
-        entries.forEach((entry) => {
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach((entry) => {
 
-                entry.target.classList.add("reveal");
+                if (entry.isIntersecting) {
 
-                requestAnimationFrame(() => {
-                    entry.target.classList.add("visible");
-                });
+                    entry.target.classList.add("reveal");
 
-                observer.unobserve(entry.target);
-            }
+                    requestAnimationFrame(() => {
+                        entry.target.classList.add("visible");
+                    });
 
-        });
+                    observer.unobserve(entry.target);
+                }
 
-    },
-    {
-        threshold: 0.08
-    }
-);
+            });
 
+        },
+        {
+            threshold: 0.08
+        }
+    );
 
-revealElements.forEach((element) => {
+    revealElements.forEach((element) => {
+        observer.observe(element);
+    });
 
-    observer.observe(element);
+} else {
 
-});
+    revealElements.forEach((element) => {
+        element.classList.add("reveal", "visible");
+    });
+
+}
 
 
 /* =========================
    CLOSE MOBILE MENU
 ========================= */
 
-document.querySelectorAll(".nav-links a").forEach((link) => {
+if (navLinks) {
 
-    link.addEventListener("click", () => {
+    document.querySelectorAll(".nav-links a").forEach((link) => {
 
-        navLinks.classList.remove("mobile-open");
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("mobile-open");
+        });
 
     });
 
-});
+}
