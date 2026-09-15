@@ -45,6 +45,11 @@ button {
     font: inherit;
 }
 
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 .navbar {
     position: fixed;
     inset: 0 0 auto 0;
@@ -58,6 +63,7 @@ button {
     width: min(1400px, calc(100% - 48px));
     height: 78px;
     margin: auto;
+
     display: flex;
     align-items: center;
     gap: 28px;
@@ -70,11 +76,27 @@ button {
     min-width: max-content;
 }
 
+
+/* LOGO PRINCIPAL — BLOQUEADO A TAMAÑO FIJO */
+
 .brand-logo {
-    width: 48px;
-    height: 48px;
+    display: block;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    min-width: 48px !important;
+    min-height: 48px !important;
+
+    max-width: 48px !important;
+    max-height: 48px !important;
+
     object-fit: contain;
+    object-position: center;
+
     border-radius: 6px;
+
+    flex: 0 0 48px;
 }
 
 .brand-name {
@@ -86,6 +108,7 @@ button {
 
 .nav-links {
     margin-left: auto;
+
     display: flex;
     align-items: center;
     gap: 27px;
@@ -93,10 +116,12 @@ button {
 
 .nav-links a {
     color: #b9bec6;
+
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: .11em;
+
     transition: .2s ease;
 }
 
@@ -108,14 +133,19 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     min-height: 40px;
     padding: 0 17px;
+
     border: 1px solid var(--gold);
+
     color: var(--gold-light);
+
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
     letter-spacing: .08em;
     font-size: 14px;
+
     transition: .2s ease;
 }
 
@@ -126,33 +156,54 @@ button {
 
 .menu-btn {
     display: none;
+
     background: transparent;
     border: 0;
+
     color: white;
     font-size: 25px;
+
     cursor: pointer;
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     min-height: 790px;
-    padding: 155px max(24px, calc((100vw - 1400px) / 2)) 90px;
+
+    padding:
+        155px
+        max(24px, calc((100vw - 1400px) / 2))
+        90px;
+
     display: grid;
     grid-template-columns: 1.25fr .75fr;
+
     align-items: center;
+
     gap: 70px;
+
     position: relative;
     overflow: hidden;
 }
 
 .hero::before {
     content: "";
+
     position: absolute;
     inset: 0;
+
     background:
-        linear-gradient(90deg, rgba(5,7,10,.98) 0%, rgba(5,7,10,.82) 48%, rgba(5,7,10,.35) 100%),
+        linear-gradient(
+            90deg,
+            rgba(5,7,10,.98) 0%,
+            rgba(5,7,10,.82) 48%,
+            rgba(5,7,10,.35) 100%
+        ),
+
         repeating-linear-gradient(
             135deg,
             transparent 0,
@@ -160,6 +211,7 @@ button {
             rgba(255,255,255,.018) 81px,
             transparent 82px
         );
+
     pointer-events: none;
 }
 
@@ -172,43 +224,62 @@ button {
 .eyebrow,
 .section-kicker {
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
+
     font-size: 13px;
     letter-spacing: .18em;
 }
 
 .hero h1 {
     margin: 15px 0 22px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: clamp(72px, 9vw, 142px);
+
     line-height: .78;
+
     font-weight: 900;
+
     letter-spacing: -.035em;
+
     text-transform: uppercase;
 }
 
 .hero-description {
     max-width: 570px;
+
     color: #a7adb6;
+
     font-size: 16px;
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 12px;
+
     margin-top: 30px;
 }
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     min-height: 48px;
+
     padding: 0 23px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 800;
+
     letter-spacing: .1em;
+
     font-size: 14px;
 }
 
@@ -223,6 +294,7 @@ button {
 
 .btn-secondary {
     border: 1px solid var(--line-strong);
+
     color: #fff;
 }
 
@@ -232,137 +304,203 @@ button {
 }
 
 
-/* NEXT RACE */
+/* =========================================================
+   NEXT RACE
+========================================================= */
 
 .next-race-card {
     padding: 34px;
+
     background:
         linear-gradient(145deg, rgba(255,255,255,.045), transparent),
         var(--panel);
+
     border: 1px solid var(--line-strong);
+
     box-shadow: 0 25px 80px rgba(0,0,0,.35);
 }
 
 .card-top {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
     color: #c9ced5;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 800;
+
     letter-spacing: .12em;
+
     font-size: 13px;
 }
 
 .live-dot {
     width: 7px;
     height: 7px;
+
     border-radius: 50%;
+
     background: #e25353;
+
     box-shadow: 0 0 12px rgba(226,83,83,.7);
+
+    flex: 0 0 7px;
 }
 
 .round-label {
     margin-top: 30px;
+
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 15px;
+
     font-weight: 800;
+
     letter-spacing: .16em;
 }
 
 .lightning {
     margin: 7px 0 0;
+
     color: var(--gold);
+
     font-weight: 900;
 }
 
 .next-label {
     color: #747b86;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 700;
+
     letter-spacing: .14em;
+
     font-size: 12px;
 }
 
 .next-race-card h2 {
     margin-top: 12px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: clamp(52px, 6vw, 80px);
+
     line-height: .78;
+
     font-weight: 900;
 }
 
 .location {
     margin-top: 22px;
+
     color: #9299a3;
+
     font-size: 13px;
+
     letter-spacing: .08em;
+
     font-weight: 600;
 }
 
 .countdown {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 7px;
+
     margin-top: 28px;
 }
 
 .count-box {
     background: #070a0e;
+
     border: 1px solid var(--line);
+
     padding: 13px 5px;
+
     text-align: center;
 }
 
 .count-box strong {
     display: block;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 29px;
+
     line-height: 1;
 }
 
 .count-box span {
     display: block;
+
     margin-top: 5px;
+
     color: #727984;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 10px;
+
     font-weight: 700;
+
     letter-spacing: .1em;
 }
 
 .race-date {
     margin-top: 18px;
+
     color: var(--gold-light);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 17px;
+
     font-weight: 800;
+
     letter-spacing: .08em;
 }
 
 .race-date span {
     color: #777f89;
+
     font-size: 12px;
 }
 
 
-/* STATS */
+/* =========================================================
+   STATS
+========================================================= */
 
 .stats-section {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     background: rgba(255,255,255,.015);
 }
 
 .stat {
     min-height: 135px;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
+
     border-right: 1px solid var(--line);
 }
 
@@ -372,123 +510,180 @@ button {
 
 .stat span {
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 55px;
+
     line-height: .9;
+
     font-weight: 900;
 }
 
 .stat small {
     margin-top: 8px;
+
     color: #737a84;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 700;
+
     font-size: 11px;
+
     letter-spacing: .17em;
 }
 
 
-/* SECTIONS */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section {
     width: min(1400px, calc(100% - 48px));
+
     margin: auto;
+
     padding: 115px 0;
 }
 
 .section-heading {
     margin-bottom: 42px;
+
     display: flex;
+
     justify-content: space-between;
     align-items: end;
+
     gap: 30px;
 }
 
 .section-heading h2 {
     margin-top: 3px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: clamp(50px, 6vw, 78px);
+
     line-height: .85;
+
     font-weight: 900;
+
     letter-spacing: -.025em;
 }
 
 .section-heading p {
     color: #747b86;
+
     font-size: 13px;
 }
 
 
-/* STANDINGS */
+/* =========================================================
+   STANDINGS
+========================================================= */
 
 .standings-block {
     margin-bottom: 45px;
+
     border: 1px solid var(--line);
+
     background: var(--panel);
+
     overflow: hidden;
 }
 
 .table-title {
     min-height: 76px;
+
     padding: 15px 23px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     border-bottom: 1px solid var(--line);
 }
 
 .table-title span {
     display: block;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 20px;
+
     font-weight: 800;
+
     letter-spacing: .08em;
 }
 
 .table-title small {
     color: #6f7781;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 700;
+
     font-size: 11px;
+
     letter-spacing: .1em;
 }
 
 .table-title strong {
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 13px;
+
     letter-spacing: .1em;
 }
 
 .table-wrapper {
     width: 100%;
+
     overflow-x: auto;
     overflow-y: hidden;
+
     -webkit-overflow-scrolling: touch;
 }
 
 .standings-table {
     width: 100%;
+
     min-width: 720px;
+
     border-collapse: collapse;
+
     table-layout: fixed;
 }
 
 .standings-table th {
     height: 45px;
+
     padding: 0 20px;
+
     background: #080b0f;
+
     color: #737b86;
+
     border-bottom: 1px solid var(--line);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 11px;
+
     font-weight: 800;
+
     letter-spacing: .13em;
+
     text-align: left;
 }
 
 .standings-table th:first-child,
 .standings-table td:first-child {
     width: 85px;
+
     text-align: center;
 }
 
@@ -499,14 +694,19 @@ button {
 .standings-table th:last-child,
 .standings-table td:last-child {
     width: 110px;
+
     text-align: right;
 }
 
 .standings-table td {
     height: 52px;
+
     padding: 0 20px;
+
     border-bottom: 1px solid rgba(255,255,255,.055);
+
     font-size: 14px;
+
     white-space: nowrap;
 }
 
@@ -528,141 +728,252 @@ button {
 
 .standings-table .leader td:first-child {
     color: var(--gold);
+
     font-weight: 800;
 }
 
-.team-hrt { color: #f1f1f1; }
-.team-redbull { color: #658cff; }
-.team-ferrari { color: #e34b4b; }
-.team-mercedes { color: #68c7bf; }
-.team-tororosso { color: #bd6bdb; }
-.team-sauber { color: #73a5d7; }
-.team-mclaren { color: #e9974e; }
-.team-williams { color: #73a9e8; }
-.team-lotus { color: #d0b64e; }
-.team-virgin { color: #dc71ad; }
-.team-renault { color: #e2cf76; }
-.team-forceindia { color: #e6a1b9; }
+
+/* TEAM COLORS */
+
+.team-hrt {
+    color: #f1f1f1;
+}
+
+.team-redbull {
+    color: #658cff;
+}
+
+.team-ferrari {
+    color: #e34b4b;
+}
+
+.team-mercedes {
+    color: #68c7bf;
+}
+
+.team-tororosso {
+    color: #bd6bdb;
+}
+
+.team-sauber {
+    color: #73a5d7;
+}
+
+.team-mclaren {
+    color: #e9974e;
+}
+
+.team-williams {
+    color: #73a9e8;
+}
+
+.team-lotus {
+    color: #d0b64e;
+}
+
+.team-virgin {
+    color: #dc71ad;
+}
+
+.team-renault {
+    color: #e2cf76;
+}
+
+.team-forceindia {
+    color: #e6a1b9;
+}
 
 
-/* CALENDAR */
+/* =========================================================
+   CALENDAR
+========================================================= */
 
 .calendar-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 13px;
 }
 
 .calendar-card {
     min-height: 270px;
+
     padding: 25px;
+
     position: relative;
+
     overflow: hidden;
+
     background: var(--panel);
+
     border: 1px solid var(--line);
-    transition: transform .2s ease, border-color .2s ease;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease;
 }
 
 .calendar-card:hover {
     transform: translateY(-4px);
+
     border-color: rgba(217,173,69,.4);
 }
 
 .calendar-card.next {
     border-color: rgba(217,173,69,.65);
+
     background:
-        linear-gradient(145deg, rgba(217,173,69,.09), transparent 55%),
+        linear-gradient(
+            145deg,
+            rgba(217,173,69,.09),
+            transparent 55%
+        ),
         var(--panel);
 }
 
 .calendar-number {
     position: absolute;
+
     top: 12px;
     right: 18px;
+
     color: rgba(255,255,255,.055);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 90px;
+
     line-height: 1;
+
     font-weight: 900;
+
+    pointer-events: none;
 }
 
 .calendar-status {
     position: relative;
+
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-weight: 800;
+
     font-size: 11px;
+
     letter-spacing: .14em;
 }
 
 .calendar-card h3 {
     position: relative;
+
     margin-top: 38px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 37px;
+
     line-height: .88;
+
     font-weight: 900;
 }
 
 .calendar-card p {
     position: relative;
+
     margin-top: 13px;
+
     color: #737b86;
+
     font-size: 11px;
+
     letter-spacing: .1em;
+
     font-weight: 700;
 }
 
 .calendar-date {
     position: absolute;
+
     left: 25px;
     bottom: 22px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     color: #d9dde2;
+
     font-size: 22px;
+
     font-weight: 800;
 }
 
 .calendar-time {
     position: absolute;
+
     right: 25px;
     bottom: 25px;
+
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 12px;
+
     font-weight: 800;
 }
 
 
-/* RACE */
+/* =========================================================
+   RACES
+========================================================= */
 
 .race-feature {
     display: grid;
+
     grid-template-columns: 150px 1fr 180px;
+
     align-items: center;
+
     background:
-        linear-gradient(100deg, rgba(217,173,69,.08), transparent 45%),
+        linear-gradient(
+            100deg,
+            rgba(217,173,69,.08),
+            transparent 45%
+        ),
         var(--panel);
+
     border: 1px solid rgba(217,173,69,.35);
 }
 
 .race-feature-round {
     min-height: 180px;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
     border-right: 1px solid var(--line);
+
     color: #727984;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 12px;
+
     font-weight: 800;
+
     letter-spacing: .13em;
 }
 
 .race-feature-round strong {
     color: var(--gold);
+
     font-size: 68px;
+
     line-height: .8;
 }
 
@@ -672,170 +983,286 @@ button {
 
 .race-feature-main > span {
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 11px;
+
     font-weight: 800;
+
     letter-spacing: .16em;
 }
 
 .race-feature-main h3 {
     margin-top: 8px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: clamp(45px, 6vw, 72px);
+
     line-height: .85;
+
     font-weight: 900;
 }
 
 .race-feature-main p {
     margin-top: 10px;
+
     color: #7f8791;
+
     font-size: 13px;
 }
 
 .race-feature-date {
     min-height: 180px;
+
     padding: 25px;
+
     border-left: 1px solid var(--line);
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 }
 
 .race-feature-date strong {
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 68px;
+
     line-height: .75;
+
     font-weight: 900;
 }
 
 .race-feature-date span {
     color: var(--gold);
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 17px;
+
     font-weight: 800;
 }
 
 .race-feature-date small {
     margin-top: 7px;
+
     color: #7b838e;
+
     font-size: 11px;
 }
 
 
-/* INFO */
+/* =========================================================
+   INFO
+========================================================= */
 
 .info-banner {
     display: grid;
+
     grid-template-columns: 180px 1fr;
+
     gap: 45px;
+
     padding: 50px;
+
     background:
-        linear-gradient(120deg, rgba(27,48,123,.16), transparent 55%),
+        linear-gradient(
+            120deg,
+            rgba(27,48,123,.16),
+            transparent 55%
+        ),
         var(--panel);
+
     border: 1px solid var(--line);
 }
 
+
+/* CONTENEDOR DEL LOGO INFO */
+
 .info-symbol {
-    width: 180px;
-    height: 180px;
+    width: 180px !important;
+    height: 180px !important;
+
+    min-width: 180px !important;
+    min-height: 180px !important;
+
+    max-width: 180px !important;
+    max-height: 180px !important;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background: #080b11;
+
     border: 1px solid var(--line-strong);
+
     overflow: hidden;
+
+    flex: 0 0 180px;
 }
 
+
+/* LOGO INFO — SIEMPRE DENTRO DEL CUADRADO */
+
 .info-symbol img {
-    width: 80%;
-    height: 80%;
+    display: block;
+
+    width: 80% !important;
+    height: 80% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
     object-fit: contain;
+    object-position: center;
+
+    flex: 0 0 auto;
 }
 
 .info-content h2 {
     margin: 5px 0 22px;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: clamp(45px, 5vw, 68px);
+
     line-height: .85;
+
     font-weight: 900;
 }
 
 .info-content p {
     max-width: 950px;
+
     margin-bottom: 18px;
+
     color: #9aa1ab;
+
     font-size: 15px;
+
     line-height: 1.75;
 }
 
 .info-content .disclaimer {
     margin-top: 25px;
+
     padding-top: 20px;
+
     border-top: 1px solid var(--line);
+
     color: var(--gold-light);
+
     font-weight: 700;
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
     border-top: 1px solid var(--line);
+
     background: #030406;
 }
 
 .footer-inner {
     width: min(1400px, calc(100% - 48px));
+
     min-height: 105px;
+
     margin: auto;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     gap: 25px;
 }
 
 .footer-brand {
     display: flex;
+
     align-items: center;
+
     gap: 15px;
 }
 
+
+/* FOOTER LOGO — BLOQUEADO */
+
 .footer-brand img {
-    width: 43px;
-    height: 43px;
+    display: block;
+
+    width: 43px !important;
+    height: 43px !important;
+
+    min-width: 43px !important;
+    min-height: 43px !important;
+
+    max-width: 43px !important;
+    max-height: 43px !important;
+
     object-fit: contain;
+    object-position: center;
+
+    flex: 0 0 43px;
 }
 
 .footer-brand span {
     color: #9ca2ab;
+
     font-family: 'Barlow Condensed', sans-serif;
+
     font-size: 14px;
+
     font-weight: 800;
+
     letter-spacing: .1em;
 }
 
 .footer-copy {
     color: #555c65;
+
     font-size: 11px;
 }
 
 
-/* REVEAL */
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(22px);
-    transition: opacity .65s ease, transform .65s ease;
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease;
 }
 
 .reveal.visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
 
-/* MOBILE */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -845,6 +1272,7 @@ footer {
 
     .hero {
         grid-template-columns: 1fr;
+
         padding-top: 135px;
     }
 
@@ -858,10 +1286,16 @@ footer {
 
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 760px) {
 
     .nav-inner {
         width: calc(100% - 30px);
+
         height: 68px;
     }
 
@@ -870,20 +1304,36 @@ footer {
     }
 
     .brand-logo {
-        width: 42px;
-        height: 42px;
+        width: 42px !important;
+        height: 42px !important;
+
+        min-width: 42px !important;
+        min-height: 42px !important;
+
+        max-width: 42px !important;
+        max-height: 42px !important;
+
+        flex-basis: 42px;
     }
 
     .nav-links {
         position: absolute;
+
         top: 68px;
+
         left: 15px;
         right: 15px;
+
         display: none;
+
         flex-direction: column;
+
         align-items: stretch;
+
         gap: 0;
+
         background: #080b10;
+
         border: 1px solid var(--line);
     }
 
@@ -893,12 +1343,15 @@ footer {
 
     .nav-links a {
         padding: 16px 18px;
+
         border-bottom: 1px solid var(--line);
     }
 
     .discord-btn {
         margin-left: auto;
+
         font-size: 12px;
+
         min-height: 36px;
     }
 
@@ -906,9 +1359,17 @@ footer {
         display: block;
     }
 
+
+    /* HERO */
+
     .hero {
         width: 100%;
-        padding: 120px 18px 65px;
+
+        padding:
+            120px
+            18px
+            65px;
+
         min-height: auto;
     }
 
@@ -923,6 +1384,9 @@ footer {
     .next-race-card {
         padding: 25px;
     }
+
+
+    /* STATS */
 
     .stats-section {
         grid-template-columns: repeat(2, 1fr);
@@ -940,8 +1404,12 @@ footer {
         border-bottom: 1px solid var(--line);
     }
 
+
+    /* SECTIONS */
+
     .section {
         width: calc(100% - 30px);
+
         padding: 80px 0;
     }
 
@@ -953,6 +1421,9 @@ footer {
         margin-top: 14px;
     }
 
+
+    /* TABLES */
+
     .table-title {
         padding: 14px 16px;
     }
@@ -961,9 +1432,15 @@ footer {
         min-width: 650px;
     }
 
+
+    /* CALENDAR */
+
     .calendar-grid {
         grid-template-columns: 1fr;
     }
+
+
+    /* RACE */
 
     .race-feature {
         grid-template-columns: 90px 1fr;
@@ -979,10 +1456,15 @@ footer {
 
     .race-feature-date {
         grid-column: 1 / -1;
+
         min-height: 85px;
+
         border-left: 0;
+
         border-top: 1px solid var(--line);
+
         flex-direction: row;
+
         gap: 10px;
     }
 
@@ -990,25 +1472,67 @@ footer {
         font-size: 48px;
     }
 
+
+    /* INFO */
+
     .info-banner {
         grid-template-columns: 1fr;
+
         padding: 30px;
+
         gap: 28px;
     }
 
     .info-symbol {
-        width: 120px;
-        height: 120px;
+        width: 120px !important;
+        height: 120px !important;
+
+        min-width: 120px !important;
+        min-height: 120px !important;
+
+        max-width: 120px !important;
+        max-height: 120px !important;
+
+        flex-basis: 120px;
     }
+
+    .info-symbol img {
+        width: 78% !important;
+        height: 78% !important;
+    }
+
+
+    /* FOOTER */
 
     .footer-inner {
         width: calc(100% - 30px);
+
         padding: 25px 0;
+
         flex-direction: column;
+
         align-items: flex-start;
     }
 
+    .footer-brand img {
+        width: 38px !important;
+        height: 38px !important;
+
+        min-width: 38px !important;
+        min-height: 38px !important;
+
+        max-width: 38px !important;
+        max-height: 38px !important;
+
+        flex-basis: 38px;
+    }
+
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 480px) {
 
@@ -1018,6 +1542,7 @@ footer {
 
     .hero-buttons {
         flex-direction: column;
+
         align-items: stretch;
     }
 
